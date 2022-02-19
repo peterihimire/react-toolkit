@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  alertW: false,
-};
-
 const alertSlice = createSlice({
-  name: "alertSlice",
-  initialState,
+  name: "alertButton",
+  initialState: {
+    alertW: "",
+  },
+
   reducers: {
-    handleAlert: (state, { payload }) => {
-      state.alertW = payload;
+    pressButton: (state, { payload }) => {
+      state.alertW = payload.text;
+      alert(state.alertW);
     },
   },
 });
 
-export const { handleAlert } = alertSlice.actions;
+export const { pressButton } = alertSlice.actions;
 
 export default alertSlice.reducer;
